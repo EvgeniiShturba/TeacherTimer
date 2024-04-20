@@ -1,14 +1,12 @@
 package com.shturba.teachertimer.ui.timer
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.shturba.teachertimer.databinding.FragmentTimerBinding
-import com.shturba.teachertimer.utils.TAG
 
 class TimerFragment : Fragment() {
 
@@ -27,9 +25,27 @@ class TimerFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        binding.buttonClick.setOnClickListener {
-            Log.i(TAG, "${System.currentTimeMillis()}")
+        binding.buttonStart.setOnClickListener {
+            viewModel.start()
+            binding.buttonStart.visibility = View.GONE
+        }
+        binding.buttonAdmin.setOnClickListener {
+            viewModel.changeActivity(LessonActivity.ADMINISTRATIVE)
+        }
+        binding.buttonNew.setOnClickListener {
+            viewModel.changeActivity(LessonActivity.NEW_MATERIAL)
+        }
+        binding.buttonCheck.setOnClickListener {
+            viewModel.changeActivity(LessonActivity.CHECKING)
+        }
+        binding.buttonTest.setOnClickListener {
+            viewModel.changeActivity(LessonActivity.TESTING)
+        }
+        binding.buttonCommun.setOnClickListener {
+            viewModel.changeActivity(LessonActivity.COMMUNICATION)
+        }
+        viewModel.timerValue.observe(viewLifecycleOwner) { timerValue ->
+            binding.textTimer.text = timerValue
         }
     }
 
