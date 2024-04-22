@@ -11,12 +11,18 @@ class TimerViewModel : ViewModel() {
     private var currentActivity: LessonActivity? = null
     private val totalTime = mutableMapOf<LessonActivity, Long>()
 
+    private val _lessonEnd = MutableLiveData(false)
+    val lessonEnd: LiveData<Boolean> get() = _lessonEnd
+
     private val _timerValue = MutableLiveData("")
     val timerValue: LiveData<String> get() = _timerValue
 
-    private val timer = object : CountDownTimer(45 * 60 * 1_000, 1_000) {
+    //    private val timer = object : CountDownTimer(45 * 60 * 1_000, 1_000) {
+    private val timer = object : CountDownTimer(15 * 1_000, 1_000) {
         override fun onTick(millisUntilFinished: Long) {
-            _timerValue.value = "${millisUntilFinished / 60_000}:${millisUntilFinished / 1000 % 60}"
+            val minutesString = (millisUntilFinished / 60_000).toString().padStart(2, '0')
+            val secondsString = (millisUntilFinished / 1000 % 60).toString().padStart(2, '0')
+            _timerValue.value = "$minutesString:$secondsString"
         }
 
         override fun onFinish() {
@@ -55,6 +61,7 @@ class TimerViewModel : ViewModel() {
 
         currentActivity = null
         startTime = -1
+        _lessonEnd.value = true
     }
 }
 

@@ -1,11 +1,17 @@
 package com.shturba.teachertimer.ui.timer
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
+import androidx.core.content.ContextCompat
+import androidx.core.view.children
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import com.shturba.teachertimer.R
 import com.shturba.teachertimer.databinding.FragmentTimerBinding
 
 class TimerFragment : Fragment() {
@@ -28,25 +34,48 @@ class TimerFragment : Fragment() {
         binding.buttonStart.setOnClickListener {
             viewModel.start()
             binding.buttonStart.visibility = View.GONE
+            binding.containerActivities.visibility = View.VISIBLE
+            setClicked(binding.buttonAdmin)
         }
         binding.buttonAdmin.setOnClickListener {
+            setClicked(it as ImageButton)
             viewModel.changeActivity(LessonActivity.ADMINISTRATIVE)
         }
-        binding.buttonNew.setOnClickListener {
+        binding.buttonNewMaterial.setOnClickListener {
+            setClicked(it as ImageButton)
             viewModel.changeActivity(LessonActivity.NEW_MATERIAL)
         }
-        binding.buttonCheck.setOnClickListener {
+        binding.buttonChecking.setOnClickListener {
+            setClicked(it as ImageButton)
             viewModel.changeActivity(LessonActivity.CHECKING)
         }
-        binding.buttonTest.setOnClickListener {
+        binding.buttonTesting.setOnClickListener {
+            setClicked(it as ImageButton)
             viewModel.changeActivity(LessonActivity.TESTING)
         }
-        binding.buttonCommun.setOnClickListener {
+        binding.buttonCommunication.setOnClickListener {
+            setClicked(it as ImageButton)
             viewModel.changeActivity(LessonActivity.COMMUNICATION)
         }
         viewModel.timerValue.observe(viewLifecycleOwner) { timerValue ->
             binding.textTimer.text = timerValue
         }
+        viewModel.lessonEnd.observe(viewLifecycleOwner) {
+           if (it) {
+               findNavController().popBackStack()
+           }
+        }
+    }
+
+    private fun setClicked(imageButton: ImageButton) {
+        binding.containerActivities.children.toList().onEach {
+            if (it is ImageButton) {
+                it.background = null
+                it.setPadding(0, 0, 0, 0)
+            }
+        }
+        imageButton.background = ContextCompat.getDrawable(requireContext(), R.drawable.border)
+        imageButton.setPadding(15, 15, 15, 15)
     }
 
     override fun onDestroyView() {
