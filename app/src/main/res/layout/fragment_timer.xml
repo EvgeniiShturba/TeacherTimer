@@ -40,15 +40,15 @@
             android:src="@drawable/ic_android"
             app:layout_constraintBottom_toTopOf="@id/button_checking"
             app:layout_constraintEnd_toStartOf="@id/button_new_material"
-            app:layout_constraintHeight_percent="0.30"
+            app:layout_constraintHeight_percent="0.27"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_percent="0.45" />
+            app:layout_constraintWidth_percent="0.40" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ADMIN"
+            android:text="Administrative"
             app:layout_constraintBottom_toBottomOf="@+id/button_admin"
             app:layout_constraintEnd_toEndOf="@+id/button_admin"
             app:layout_constraintStart_toStartOf="@+id/button_admin" />
@@ -61,10 +61,18 @@
             android:src="@drawable/ic_android"
             app:layout_constraintBottom_toTopOf="@id/button_testing"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent="0.30"
+            app:layout_constraintHeight_percent="0.27"
             app:layout_constraintStart_toEndOf="@id/button_admin"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_percent="0.45" />
+            app:layout_constraintWidth_percent="0.40" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Material"
+            app:layout_constraintBottom_toBottomOf="@+id/button_new_material"
+            app:layout_constraintEnd_toEndOf="@+id/button_new_material"
+            app:layout_constraintStart_toStartOf="@+id/button_new_material" />
 
         <ImageButton
             android:id="@+id/button_checking"
@@ -74,10 +82,18 @@
             android:src="@drawable/ic_android"
             app:layout_constraintBottom_toTopOf="@id/button_communication"
             app:layout_constraintEnd_toStartOf="@id/button_testing"
-            app:layout_constraintHeight_percent="0.30"
+            app:layout_constraintHeight_percent="0.27"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/button_admin"
-            app:layout_constraintWidth_percent="0.45" />
+            app:layout_constraintWidth_percent="0.40" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Checking"
+            app:layout_constraintBottom_toBottomOf="@+id/button_checking"
+            app:layout_constraintEnd_toEndOf="@+id/button_checking"
+            app:layout_constraintStart_toStartOf="@+id/button_checking" />
 
         <ImageButton
             android:id="@+id/button_testing"
@@ -87,10 +103,18 @@
             android:src="@drawable/ic_android"
             app:layout_constraintBottom_toTopOf="@id/button_placeholder"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent="0.30"
+            app:layout_constraintHeight_percent="0.27"
             app:layout_constraintStart_toEndOf="@id/button_checking"
             app:layout_constraintTop_toBottomOf="@id/button_new_material"
-            app:layout_constraintWidth_percent="0.45" />
+            app:layout_constraintWidth_percent="0.40" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Testing"
+            app:layout_constraintBottom_toBottomOf="@+id/button_testing"
+            app:layout_constraintEnd_toEndOf="@+id/button_testing"
+            app:layout_constraintStart_toStartOf="@+id/button_testing"
 
         <ImageButton
             android:id="@+id/button_communication"
@@ -100,10 +124,18 @@
             android:src="@drawable/ic_android"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/button_placeholder"
-            app:layout_constraintHeight_percent="0.30"
+            app:layout_constraintHeight_percent="0.27"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/button_checking"
-            app:layout_constraintWidth_percent="0.45" />
+            app:layout_constraintWidth_percent="0.40" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Communication"
+            app:layout_constraintBottom_toBottomOf="@+id/button_communication"
+            app:layout_constraintEnd_toEndOf="@+id/button_communication"
+            app:layout_constraintStart_toStartOf="@+id/button_communication"
 
         <ImageButton
             android:id="@+id/button_placeholder"
@@ -114,10 +146,10 @@
             android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent="0.30"
+            app:layout_constraintHeight_percent="0.27"
             app:layout_constraintStart_toEndOf="@id/button_communication"
             app:layout_constraintTop_toBottomOf="@id/button_testing"
-            app:layout_constraintWidth_percent="0.45" />
+            app:layout_constraintWidth_percent="0.40" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -130,5 +162,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
+        <Button
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Help"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="parent"
+            android:layout_marginBottom="120dp"
+            />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
