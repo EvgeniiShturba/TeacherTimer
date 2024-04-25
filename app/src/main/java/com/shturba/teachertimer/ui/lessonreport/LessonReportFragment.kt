@@ -29,7 +29,9 @@ class LessonReportFragment : Fragment() {
         binding.buttonStartLesson.setOnClickListener {
             findNavController().navigate(R.id.action_lessonReportFragment_to_timerFragment)
         }
-
+        binding.buttonHelp.setOnClickListener {
+            findNavController().navigate(R.id.action_lessonReportFragment_to_helpFragment)
+        }
     }
 
     override fun onDestroyView() {

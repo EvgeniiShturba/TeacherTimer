@@ -6,6 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".ui.lessonreport.LessonReportFragment">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
     <Button
         android:id="@+id/button_start_lesson"
         android:layout_width="wrap_content"
@@ -13,12 +18,26 @@
         android:layout_marginBottom="24dp"
         android:text="Start lesson"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toStartOf="@id/button_help"
+        app:layout_constraintWidth_percent="40"
+        />
+
+    <Button
+        android:id="@+id/button_help"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="help"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/button_start_lesson"
+        app:layout_constraintWidth_percent="40" />
+
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:text="@string/hello_blank_fragment"
+        tools:layout_editor_absoluteX="106dp"
+        tools:layout_editor_absoluteY="0dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

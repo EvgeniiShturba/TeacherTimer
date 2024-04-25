@@ -60,6 +60,9 @@ class TimerFragment : Fragment() {
         viewModel.timerValue.observe(viewLifecycleOwner) { timerValue ->
             binding.textTimer.text = timerValue
         }
+        binding.buttonHelp.setOnClickListener {
+            findNavController().navigate(R.id.action_timerFragment_to_helpFragment)
+        }
         viewModel.lessonEnd.observe(viewLifecycleOwner) {
            if (it) {
                findNavController().popBackStack()
