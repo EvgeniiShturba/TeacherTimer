@@ -11,15 +11,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginVertical="32dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginEnd="25dp"
 
         android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="This App is designed to help teachers make better use of time in the classroom.
+        android:text="This App is designed to help teachers make better use of time in the classroom.
 The app allows its users to monitor the amount of time that is spent on each activity during the lesson.
 Register to get started; Use whatever name you feel comfortable with.
 At the beginning of the lesson, click the start button. The countdown timer will start and the program will start running. There will be five activities presented on the screen in the format of an icon. Click on an icon of your choice to switch between different activities.

@@ -17,7 +17,6 @@ class HelpFragment : Fragment() {
 
     private var _binding: FragmentHelpBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: TimerViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,11 +25,14 @@ class HelpFragment : Fragment() {
     ): View {
         _binding = FragmentHelpBinding.inflate(inflater, container, false)
         return binding.root
+    }
 
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         binding.buttonBack.setOnClickListener {
             findNavController().popBackStack()
         }
+
     }
     override fun onDestroyView() {
         super.onDestroyView()
