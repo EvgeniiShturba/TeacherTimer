@@ -5,14 +5,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.shturba.teachertimer.R
+import com.shturba.teachertimer.database.Lesson
 import com.shturba.teachertimer.databinding.FragmentLessonReportBinding
+import com.shturba.teachertimer.ui.timer.TimerViewModel
+import kotlinx.coroutines.flow.Flow
 
 class LessonReportFragment : Fragment() {
 
     private var _binding: FragmentLessonReportBinding? = null
     private val binding get() = _binding!!
+    private val viewModel: LessonReportViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -32,7 +37,12 @@ class LessonReportFragment : Fragment() {
         binding.buttonHelp.setOnClickListener {
             findNavController().navigate(R.id.action_lessonReportFragment_to_helpFragment)
         }
+
+
     }
+
+
+
 
     override fun onDestroyView() {
         super.onDestroyView()

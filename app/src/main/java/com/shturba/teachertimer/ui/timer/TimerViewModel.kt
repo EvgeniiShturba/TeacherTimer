@@ -18,7 +18,7 @@ import java.util.UUID
 
 class TimerViewModel(app: Application) : AndroidViewModel(app) {
 
-    private val repo = Repository(LessonDatabase.getDatabase(app).lessonDao(), TEACHER_ID)
+    private val repo = Repository.getInstance(LessonDatabase.getDatabase(app).lessonDao(), TEACHER_ID)
     private var startTime: Long = -1
     private var currentActivity: LessonActivity? = null
     private val totalTime = mutableMapOf<LessonActivity, Long>()
