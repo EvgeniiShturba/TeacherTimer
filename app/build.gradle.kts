@@ -68,4 +68,7 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    //Diograms
+    implementation ("com.github.PhilJay:MPAndroidChart:3.1.0")
 }

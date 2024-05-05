@@ -3,11 +3,7 @@ package com.shturba.teachertimer.ui.lessonreport
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MediatorLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
-import androidx.lifecycle.liveData
-import androidx.lifecycle.switchMap
-import com.shturba.teachertimer.database.Lesson
 import com.shturba.teachertimer.database.LessonDatabase
 import com.shturba.teachertimer.database.Repository
 import com.shturba.teachertimer.database.toLessonData
@@ -28,7 +24,7 @@ class LessonReportViewModel(app: Application) : AndroidViewModel(app) {
     }
     val allLessonsData = MediatorLiveData<Map<LessonActivity, Int>>().apply {
         addSource(lessons) { lessonList ->
-            lessonList.toLessonData()
+            value = lessonList.toLessonData()
         }
     }
 }
