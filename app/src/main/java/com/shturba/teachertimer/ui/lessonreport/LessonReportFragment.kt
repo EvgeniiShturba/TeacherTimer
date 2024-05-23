@@ -77,7 +77,7 @@ class LessonReportFragment : Fragment() {
         pieChart.setTransparentCircleAlpha(110)
 
         // on  below line we are setting hole radius
-        pieChart.setHoleRadius(58f)
+        pieChart.setHoleRadius(48f)
         pieChart.setTransparentCircleRadius(61f)
 
         // on below line we are setting center text
@@ -96,7 +96,7 @@ class LessonReportFragment : Fragment() {
 
         // on below line we are disabling our legend for pie chart
         pieChart.legend.isEnabled = false
-        pieChart.setEntryLabelColor(Color.WHITE)
+        pieChart.setEntryLabelColor(Color.BLACK)
         pieChart.setEntryLabelTextSize(12f)
 
         // on below line we are creating array list and
