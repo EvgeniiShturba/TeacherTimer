@@ -3,31 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_graph"
-    app:startDestination="@id/lessonReportFragment">
+    app:startDestination="@id/reportFragment">
 
     <fragment
         android:id="@+id/timerFragment"
-        android:name="com.shturba.teachertimer.ui.timer.TimerFragment"
+        android:name="com.shturba.teachertimer.ui.lesson.LessonFragment"
         android:label="fragment_timer"
-        tools:layout="@layout/fragment_timer" >
-        <action
-            android:id="@+id/action_timerFragment_to_helpFragment"
-            app:destination="@id/helpFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_lesson" />
     <fragment
-        android:id="@+id/lessonReportFragment"
-        android:name="com.shturba.teachertimer.ui.lessonreport.LessonReportFragment"
+        android:id="@+id/reportFragment"
+        android:name="com.shturba.teachertimer.ui.report.ReportFragment"
         android:label="fragment_lesson_report"
-        tools:layout="@layout/fragment_lesson_report" >
+        tools:layout="@layout/fragment_report">
         <action
-            android:id="@+id/action_lessonReportFragment_to_timerFragment"
+            android:id="@+id/action_reportFragment_to_timerFragment"
             app:destination="@id/timerFragment" />
-        <action
-            android:id="@+id/action_lessonReportFragment_to_helpFragment"
-            app:destination="@id/helpFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/helpFragment"
-        android:name="com.shturba.teachertimer.ui.HelpFragment"
-        android:label="HelpFragment" />
 </navigation>

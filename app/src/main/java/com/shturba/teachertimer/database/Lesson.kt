@@ -3,7 +3,7 @@ package com.shturba.teachertimer.database
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.shturba.teachertimer.ui.timer.LessonActivity
+import com.shturba.teachertimer.ui.lesson.LessonActivity
 
 @Entity
 data class Lesson (
