@@ -9,15 +9,17 @@ import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.shturba.teachertimer.R
 import com.shturba.teachertimer.databinding.FragmentLessonBinding
+import com.shturba.teachertimer.ui.help.HelpDialogFragment
 import com.shturba.teachertimer.utils.FragmentOnBackPressedCallback
 
-class LessonFragment : Fragment() {
+class LessonFragment : Fragment(), AlertDialogListener {
 
     @Suppress("ktlint:standard:backing-property-naming")
     private var _binding: FragmentLessonBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: TimerViewModel by viewModels()
+    private val viewModel: LessonViewModel by viewModels()
     private lateinit var activitiesToCards: Map<LessonActivity, CardView>
 
     override fun onCreateView(
@@ -56,6 +58,8 @@ class LessonFragment : Fragment() {
             binding.textTimer.text = uiState.timerValue
             setActiveCard(uiState.currentActivity)
         }
+
+        setupToolbar()
     }
 
     private fun setActiveCard(newActivity: LessonActivity) {
@@ -69,8 +73,43 @@ class LessonFragment : Fragment() {
         }
     }
 
+    private fun setupToolbar() {
+        binding.toolbar.setOnMenuItemClickListener {
+            when (it.itemId) {
+                R.id.action_help -> {
+                    if (childFragmentManager.findFragmentByTag(HelpDialogFragment.TAG) == null) {
+                        HelpDialogFragment().show(
+                            childFragmentManager,
+                            HelpDialogFragment.TAG,
+                        )
+                    }
+                    true
+                }
+
+                R.id.action_stop_lesson -> {
+                    showStopLessonDialog()
+                    true
+                }
+
+                else -> false
+            }
+        }
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun showStopLessonDialog() {
+        StopLessonDialogFragment().show(childFragmentManager, StopLessonDialogFragment.TAG)
+    }
+
+    override fun onDialogPositiveClick() {
+        viewModel.stop()
+    }
+
+    override fun onDialogNegativeClick() {
+        // Do nothing
     }
 }

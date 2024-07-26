@@ -4,5 +4,12 @@
         <item name="colorPrimary">#466677</item>
     </style>
 
-    <style name="Theme.TeacherTimer" parent="Base.Theme.TeacherTimer" />
+    <style name="Theme.TeacherTimer" parent="Base.Theme.TeacherTimer">
+        <item name="colorControlNormal">@color/white</item>
+    </style>
+
+    <style name="Widget.App.Toolbar" parent="Widget.Material3.Toolbar">
+        <item name="android:background">#466677</item>
+        <item name="titleTextColor">@color/white</item>
+    </style>
 </resources>

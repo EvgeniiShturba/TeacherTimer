@@ -23,7 +23,7 @@ data class UiState(
     val isLessonFinished: Boolean = false,
 )
 
-class TimerViewModel(app: Application) : AndroidViewModel(app) {
+class LessonViewModel(app: Application) : AndroidViewModel(app) {
 
     private val repo = Repository.getInstance(
         LessonDatabase.getDatabase(app).lessonDao(),
@@ -36,7 +36,7 @@ class TimerViewModel(app: Application) : AndroidViewModel(app) {
     private val _uiState = MutableLiveData(UiState())
     val uiState: LiveData<UiState> get() = _uiState
 
-    private val timer = object : CountDownTimer(SECONDS, 1_000) {
+    private val timer = object : CountDownTimer(MINUTES_45, 1_000) {
         override fun onTick(millisUntilFinished: Long) {
             val minutesString = (millisUntilFinished / 60_000).toString().padStart(2, '0')
             val secondsString = (millisUntilFinished / 1000 % 60).toString().padStart(2, '0')
@@ -100,5 +100,5 @@ enum class LessonActivity {
     NEW_MATERIAL,
     CHECKING,
     TESTING,
-    COMMUNICATION;
+    COMMUNICATION,
 }

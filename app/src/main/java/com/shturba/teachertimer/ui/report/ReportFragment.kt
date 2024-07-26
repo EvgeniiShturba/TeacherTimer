@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.material.tabs.TabLayoutMediator
 import com.shturba.teachertimer.R
 import com.shturba.teachertimer.databinding.FragmentReportBinding
+import com.shturba.teachertimer.ui.help.HelpDialogFragment
 
 class ReportFragment : Fragment() {
 
@@ -45,6 +46,7 @@ class ReportFragment : Fragment() {
             }
             viewModel.startCountdown()
         }
+
         viewModel.isLessonStarted.observe(viewLifecycleOwner) {
             if (it) {
                 childFragmentManager.findFragmentByTag(CountdownDialogFragment.TAG)?.let { df ->
@@ -52,6 +54,26 @@ class ReportFragment : Fragment() {
                 }
                 findNavController().navigate(R.id.action_reportFragment_to_timerFragment)
                 viewModel.isLessonStartedHandled()
+            }
+        }
+
+        setupToolbar()
+    }
+
+    private fun setupToolbar() {
+        binding.toolbar.setOnMenuItemClickListener {
+            when (it.itemId) {
+                R.id.action_help -> {
+                    if (childFragmentManager.findFragmentByTag(HelpDialogFragment.TAG) == null) {
+                        HelpDialogFragment().show(
+                            childFragmentManager,
+                            HelpDialogFragment.TAG,
+                        )
+                    }
+                    true
+                }
+
+                else -> false
             }
         }
     }
