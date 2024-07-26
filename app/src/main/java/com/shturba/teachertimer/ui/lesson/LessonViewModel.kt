@@ -9,6 +9,7 @@ import androidx.lifecycle.viewModelScope
 import com.shturba.teachertimer.database.Lesson
 import com.shturba.teachertimer.database.LessonDatabase
 import com.shturba.teachertimer.database.Repository
+import com.shturba.teachertimer.model.LessonActivity
 import com.shturba.teachertimer.utils.TEACHER_ID
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -93,12 +94,4 @@ class LessonViewModel(app: Application) : AndroidViewModel(app) {
             _uiState.postValue(_uiState.value?.copy(isLessonFinished = true))
         }
     }
-}
-
-enum class LessonActivity {
-    ADMINISTRATIVE,
-    NEW_MATERIAL,
-    CHECKING,
-    TESTING,
-    COMMUNICATION,
 }

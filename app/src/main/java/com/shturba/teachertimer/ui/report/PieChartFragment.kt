@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.charts.PieChart
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
@@ -16,7 +15,7 @@ import com.github.mikephil.charting.data.PieEntry
 import com.github.mikephil.charting.formatter.PercentFormatter
 import com.github.mikephil.charting.utils.MPPointF
 import com.shturba.teachertimer.databinding.FragmentPieChartBinding
-import com.shturba.teachertimer.ui.lesson.LessonActivity
+import com.shturba.teachertimer.model.LessonActivity
 
 class PieChartFragment : Fragment() {
 
@@ -62,6 +61,8 @@ class PieChartFragment : Fragment() {
     }
 
     private fun createPieChart(data: Map<LessonActivity, Int>, pieChart: PieChart) {
+        val chartData = data.filter { it.value > 0 }
+
         // on below line we are setting user percent value,
         // setting description as enabled and offset for pie chart
         pieChart.setUsePercentValues(true)
@@ -85,10 +86,10 @@ class PieChartFragment : Fragment() {
 
         // on below line we are creating array list and
         // adding data to it to display in pie chart
-        val entries = data.toList().map { PieEntry(it.second.toFloat(), it.first.name) }
+        val entries = chartData.toList().map { PieEntry(it.second.toFloat(), it.first.name) }
 
         // on below line we are setting pie data set
-        val dataSet = PieDataSet(entries, "Mobile OS")
+        val dataSet = PieDataSet(entries, "")
 
         // on below line we are setting icons.
         dataSet.setDrawIcons(false)
@@ -99,7 +100,8 @@ class PieChartFragment : Fragment() {
         dataSet.selectionShift = 5f
 
         // on below line we are setting colors.
-        dataSet.colors = listOf(Color.CYAN, Color.GREEN, Color.MAGENTA, Color.RED, Color.YELLOW)
+//        dataSet.colors = listOf(Color.CYAN, Color.GREEN, Color.MAGENTA, Color.RED, Color.YELLOW)
+        dataSet.colors = chartData.map { it.key.color }
 
         // on below line we are setting pie data set
         val pieData = PieData(dataSet)

@@ -10,16 +10,14 @@ import androidx.lifecycle.viewModelScope
 import com.shturba.teachertimer.database.LessonDatabase
 import com.shturba.teachertimer.database.Repository
 import com.shturba.teachertimer.database.toLessonData
-import com.shturba.teachertimer.ui.lesson.LessonActivity
+import com.shturba.teachertimer.model.LessonActivity
 import com.shturba.teachertimer.utils.TEACHER_ID
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 
-class ReportViewModel(
-    app: Application,
-) : AndroidViewModel(app) {
+class ReportViewModel(app: Application) : AndroidViewModel(app) {
 
     private val repo =
         Repository.getInstance(LessonDatabase.getDatabase(app).lessonDao(), TEACHER_ID)

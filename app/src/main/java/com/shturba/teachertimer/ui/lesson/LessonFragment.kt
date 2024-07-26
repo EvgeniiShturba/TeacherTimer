@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import com.shturba.teachertimer.R
 import com.shturba.teachertimer.databinding.FragmentLessonBinding
 import com.shturba.teachertimer.ui.help.HelpDialogFragment
+import com.shturba.teachertimer.model.LessonActivity
 import com.shturba.teachertimer.utils.FragmentOnBackPressedCallback
 
 class LessonFragment : Fragment(), AlertDialogListener {
